@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af2cb7963aca5f43bbe22908a1e7159, type: 3}
+  m_Name: Riposte Carmin
+  m_EditorClassIdentifier: 
+  spellName: Riposte Carmin
+  deckCategory: 1
+  icon: {fileID: 0}
+  description: "Pendant 1 tour : toute attaque de m\xEAl\xE9e subie inflige 70 d\xE9g\xE2ts \xE0 l'attaquant (max 3)."
+  synergyDescription: "Contre-attaque passive \u2014 punit les corps-\xE0-corps adverses."
+  paCost: 3
+  cooldown: 0
+  isMeleeOnly: 0
+  rangeMin: 0
+  rangeMax: 0
+  requiresLineOfSight: 0
+  ignoresLineOfSight: 0
+  zoneType: 5
+  aoeRadius: 0
+  excludeCasterFromHarmfulAoE: 0
+  effects:
+  - type: 9
+    value: 70
+    duration: 1
+    condition: 0
+    conditionThreshold: 0
+    conditionMultiplier: 1
+  castAnimationBaseId: attack_riposte_carmin

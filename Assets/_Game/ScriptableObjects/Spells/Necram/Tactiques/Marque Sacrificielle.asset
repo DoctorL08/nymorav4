@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af2cb7963aca5f43bbe22908a1e7159, type: 3}
+  m_Name: Marque Sacrificielle
+  m_EditorClassIdentifier: 
+  spellName: Marque Sacrificielle
+  deckCategory: 2
+  icon: {fileID: 0}
+  description: "Applique 1 marque de Venin \xE0 la cible sans infliger de d\xE9g\xE2ts
+    directs.\nTick adapt\xE9 au palier Toxine (22/25/29 d\xE9g\xE2ts/tour \xD7 3
+    tours)."
+  synergyDescription: "Setup \xE0 distance alternatif \u2014 co\xFBt 2 PA, CD 2 tours.
+    Alimente la jauge Toxine."
+  paCost: 2
+  cooldown: 2
+  isMeleeOnly: 0
+  rangeMin: 1
+  rangeMax: 5
+  requiresLineOfSight: 0
+  ignoresLineOfSight: 0
+  zoneType: 0
+  aoeRadius: 0
+  excludeCasterFromHarmfulAoE: 0
+  effects:
+  - type: 28
+    value: 22
+    duration: 3
+    condition: 0
+    conditionThreshold: 0
+    conditionMultiplier: 1
+  castAnimationBaseId: 

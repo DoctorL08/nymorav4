@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b41657a3055ca044895352d380bfbc7, type: 3}
+  m_Name: Colossar
+  m_EditorClassIdentifier: 
+  classId: 3
+  displayName: Colossar
+  emoji: "\U0001F6E1\uFE0F"
+  lore: "Les Colossars ne sont pas n\xE9s, ils ont \xE9t\xE9 sculpt\xE9s par la pression
+    des montagnes et le deuil des cit\xE9s englouties.\n\nDerniers piliers d'une
+    civilisation de pierre, ils portent l'inertie du monde sur leurs \xE9paules.\n\nUn
+    univers de fracas et de gravit\xE9 lourde. Leur simple respiration sonne comme
+    du granit qu'on broie, et l'espace semble s'affaisser sous leur poids. Des colosses
+    massifs dont le corps s'effrite en pixels de roche, entour\xE9s de d\xE9bris
+    en l\xE9vitation d\xE9fiant les lois de la physique."
+  passiveName: Absorption
+  passiveMechanic: "+1 jauge par 40 d\xE9g\xE2ts re\xE7us. Chaque palier r\xE9duit
+    les d\xE9g\xE2ts subis et acc\xE9l\xE8re la mont\xE9e de jauge via les sorts
+    d\xE9fensifs."
+  stageBase:
+    label: Base
+    jaugeMin: 0
+    jaugeMax: 2
+    effectDescription: "-5% d\xE9g\xE2ts subis."
+  stageEveille:
+    label: "\xC9veill\xE9"
+    jaugeMin: 3
+    jaugeMax: 5
+    effectDescription: "-15% d\xE9g\xE2ts subis. Sorts d\xE9fensifs g\xE9n\xE8rent
+      +1 jauge."
+  stageEnrage:
+    label: "Enrag\xE9"
+    jaugeMin: 6
+    jaugeMax: -1
+    effectDescription: "-20% d\xE9g\xE2ts subis. D\xE9bloque Reflet Punitif."
+  enragedSpellName: Reflet Punitif
+  enragedSpellDescription: "1 PA \u2014 AoE 2 cases autour \u2014 130 d\xE9g\xE2ts
+    + Trauma (-2 PA prochain tour)."
+  attackSpells: []
+  tacticSpells: []
+  survivalSpells: []

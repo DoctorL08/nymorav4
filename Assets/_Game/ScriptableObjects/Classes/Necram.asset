@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b41657a3055ca044895352d380bfbc7, type: 3}
+  m_Name: Necram
+  m_EditorClassIdentifier: 
+  classId: 4
+  displayName: Necram
+  emoji: "\u2620\uFE0F"
+  lore: "Pour cette race, la vie n'est qu'une infection temporaire. Ils se voient
+    comme les jardiniers d'une d\xE9composition sacr\xE9e.\n\nIssus des marais de
+    putr\xE9faction, ils ont troqu\xE9 leur humanit\xE9 contre la symbiose avec des
+    parasites ancestraux.\n\nUne ambiance de bourdonnement incessant et de pourriture
+    fertile. Leur monde est celui des spores vertes, des moisissures rampantes et
+    des r\xE2les d'agonie \xE9touff\xE9s. Des silhouettes vo\xFBt\xE9es, presque
+    organiques, drap\xE9es dans un nuage toxique dense o\xF9 s'agitent des milliers
+    de mouches pixelis\xE9es."
+  passiveName: Toxine
+  passiveMechanic: "+1 jauge par marque de Venin appliqu\xE9e. Chaque sort offensif
+    applique des marques qui tick des d\xE9g\xE2ts par tour (stack infini). Les DoT
+    de Venin ignorent la r\xE9duction de d\xE9g\xE2ts du Colossar."
+  stageBase:
+    label: Base
+    jaugeMin: 0
+    jaugeMax: 3
+    effectDescription: "Chaque sort offensif applique 1 marque (22 dmg/tour \xD7
+      3 tours, stack infini)."
+  stageEveille:
+    label: "\xC9veill\xE9"
+    jaugeMin: 4
+    jaugeMax: 6
+    effectDescription: "+15% d\xE9g\xE2ts DoT venin (ticks 22\u219225). Regen 1 HP/marque.
+      +2 jauges/marque."
+  stageEnrage:
+    label: "Enrag\xE9"
+    jaugeMin: 7
+    jaugeMax: -1
+    effectDescription: "+30% d\xE9g\xE2ts DoT venin (ticks 22\u219229). D\xE9bloque
+      Virus Fatal."
+  enragedSpellName: Virus Fatal
+  enragedSpellDescription: "1 PA \u2014 Port\xE9e 3 \u2014 D\xE9clenche imm\xE9diatement
+    toutes les marques sur la cible (avec multiplicateur Enrag\xE9) puis les retire."
+  enragedSpell: {fileID: 11400000, guid: 5416f10f38d63044bbeace689a56a0cd, type: 2}
+  passiveData: {fileID: 11400000, guid: e4e82b3bf4ed9394bb60faf5a1052cc1, type: 2}
+  attackSpells:
+  - {fileID: 11400000, guid: ee1d1199b3e2c064390b045dae735bf0, type: 2}
+  - {fileID: 11400000, guid: aaed29f1d0767734db80c1f1c64cc6c8, type: 2}
+  - {fileID: 11400000, guid: 97b34f61d22f49245a7ea17187125f86, type: 2}
+  - {fileID: 11400000, guid: fef1829f7d76af44bac29eef2bfb2c56, type: 2}
+  - {fileID: 11400000, guid: 2e76f4f0f261b0444aa82bf1fe71fe58, type: 2}
+  tacticSpells:
+  - {fileID: 11400000, guid: 8d27f5328e7ba8e43b04d7fa362a3cba, type: 2}
+  - {fileID: 11400000, guid: f8a2cd3cc8260e745a3bd0c1f9eaf6b7, type: 2}
+  - {fileID: 11400000, guid: d4778896c55c02a49afcf8260fe640e7, type: 2}
+  - {fileID: 11400000, guid: ee250034e225223419ec337d1ec16ac3, type: 2}
+  - {fileID: 11400000, guid: 31e202f8a4df7024e930a946cbf7cd65, type: 2}
+  survivalSpells:
+  - {fileID: 11400000, guid: fff70d8797bcf36468664703346fedb4, type: 2}
+  - {fileID: 11400000, guid: 1f52a596aead6534189cd5c11fd997c5, type: 2}
+  - {fileID: 11400000, guid: 316200acb5f4cc3498259981ca8aacbf, type: 2}
+  - {fileID: 11400000, guid: 08dcde0452cc4264b8874c6fe51c4167, type: 2}
+  - {fileID: 11400000, guid: 9e62fb68923e33044994b073df969698, type: 2}

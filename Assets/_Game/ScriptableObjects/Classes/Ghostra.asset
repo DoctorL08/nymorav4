@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b41657a3055ca044895352d380bfbc7, type: 3}
+  m_Name: Ghostra
+  m_EditorClassIdentifier: 
+  classId: 0
+  displayName: Ghostra
+  emoji: "\U0001F47B"
+  characterKey: Ghostra
+  lore: "Les Ghostras sont des anomalies chroniques \u2014 des individus dont l'existence
+    a \xE9t\xE9 effac\xE9e mais dont l'\xE9cho refuse de dispara\xEEtre.\n\nTrahis
+    et assassin\xE9s, ils reviennent sous forme de silhouettes floues pour arracher
+    ce qu'on leur a pris.\n\nLeur monde est d\xE9satur\xE9, sans couleur, o\xF9 ne
+    subsistent que des murmures gla\xE7ants et des images r\xE9manentes de ce qui
+    fut. Des personnages aux contours instables, comme un bug graphique permanent,
+    devenant des ombres noires et floues qui font gr\xE9siller la r\xE9alit\xE9."
+  passiveName: "Pr\xE9sence Funeste"
+  passiveMechanic: "+1 jauge \xE0 chaque coup port\xE9 dans le dos de l'ennemi. Bonus
+    fixe par sort dorsal selon le palier actif. Le bonus FIXE emp\xEAche l'empilement
+    burst tout en rendant chaque dorsal puissant individuellement."
+  stageBase:
+    label: Base
+    jaugeMin: 0
+    jaugeMax: 3
+    effectDescription: "+35 d\xE9g\xE2ts fixes par sort dorsal."
+  stageEveille:
+    label: "\xC9veill\xE9"
+    jaugeMin: 4
+    jaugeMax: 7
+    effectDescription: "+55 d\xE9g\xE2ts fixes par sort dorsal."
+  stageEnrage:
+    label: "Enrag\xE9"
+    jaugeMin: 8
+    jaugeMax: -1
+    effectDescription: "+75 d\xE9g\xE2ts fixes par sort dorsal. D\xE9bloque le sort
+      signature Saign\xE9e."
+  enragedSpellName: "Saign\xE9e"
+  enragedSpellDescription: "1 PA \u2014 Port\xE9e 1 \u2014 200 d\xE9g\xE2ts + Plaie
+    Ouverte (40 HP/tour \xD7 2 tours)."
+  enragedSpell: {fileID: 11400000, guid: 28c56c1032217a74ba3ed96bbdc96b3a, type: 2}
+  passiveData: {fileID: 11400000, guid: f7b2dd04ed24f7f4d9191c5bbe12452d, type: 2}
+  attackSpells:
+  - {fileID: 11400000, guid: 8da5ed80bc4ccec4abf56c8172bde544, type: 2}
+  - {fileID: 11400000, guid: d066174ce042af5448e0362103cbaf88, type: 2}
+  - {fileID: 11400000, guid: 98361fbc966b0464e8f67605606d822b, type: 2}
+  - {fileID: 11400000, guid: 0df1cf8b92357204cbc5f3d089683cfc, type: 2}
+  - {fileID: 11400000, guid: c5c3b6145df0f114594d62fdc79ec014, type: 2}
+  tacticSpells:
+  - {fileID: 11400000, guid: 3fe6224ab3c24f54ba34fa39c45c88a1, type: 2}
+  - {fileID: 11400000, guid: 62d8742abfdcc67488431b0ec0bdc4bc, type: 2}
+  - {fileID: 11400000, guid: 1791f5b2d9c4f0146845f885f8c6ffdc, type: 2}
+  - {fileID: 11400000, guid: 1919d42bf4abf0b4897174de3c894ec7, type: 2}
+  - {fileID: 11400000, guid: d47580275a3fa81458a4e9e9bc56813b, type: 2}
+  survivalSpells:
+  - {fileID: 11400000, guid: b376ee7f8416b7e41815fdd2a2939a84, type: 2}
+  - {fileID: 11400000, guid: b09470904e23a2144ba5f598893a5fa4, type: 2}
+  - {fileID: 11400000, guid: 48df4a8f14ce710409010418f0930c39, type: 2}
+  - {fileID: 11400000, guid: 9fb37676227cbb94aa4aae7f1e780074, type: 2}
+  - {fileID: 11400000, guid: a781be8c8f6354241a4de584c51950c3, type: 2}

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af2cb7963aca5f43bbe22908a1e7159, type: 3}
+  m_Name: Carapace Visqueuse
+  m_EditorClassIdentifier: 
+  spellName: Carapace Visqueuse
+  deckCategory: 1
+  icon: {fileID: 0}
+  description: "Bouclier : 110 PV pendant 2 tours.\n\xC9pines venimeuses : tout attaquant
+    m\xEAl\xE9e subit 22 d\xE9g\xE2ts (\xE9quivalent 1 marque de Venin) pendant 2
+    tours."
+  synergyDescription: "D\xE9fense r\xE9active \u2014 punit les attaquants C\xE0C
+    et simule l'application d'une marque via les \xE9pines."
+  paCost: 3
+  cooldown: 3
+  isMeleeOnly: 0
+  rangeMin: 0
+  rangeMax: 0
+  requiresLineOfSight: 0
+  ignoresLineOfSight: 0
+  zoneType: 5
+  aoeRadius: 0
+  excludeCasterFromHarmfulAoE: 0
+  effects:
+  - type: 7
+    value: 110
+    duration: 2
+    condition: 0
+    conditionThreshold: 0
+    conditionMultiplier: 1
+  - type: 9
+    value: 22
+    duration: 2
+    condition: 0
+    conditionThreshold: 0
+    conditionMultiplier: 1
+  castAnimationBaseId: 

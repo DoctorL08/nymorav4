@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b41657a3055ca044895352d380bfbc7, type: 3}
+  m_Name: Nightseer
+  m_EditorClassIdentifier: 
+  classId: 2
+  displayName: Nightseer
+  emoji: "\U0001F3F9"
+  lore: "Ancienne lign\xE9e d'\xE9claireurs ayant travers\xE9 la 'faille sans lune',
+    leur regard est d\xE9sormais fig\xE9 sur des horizons invisibles aux mortels.\n\nIls
+    chassent pour nourrir un vide int\xE9rieur que seule l'obscurit\xE9 peut combler.\n\nUn
+    silence glacial, trou\xE9 par le sifflement d'un vent spectral. Autour d'eux,
+    la lumi\xE8re 'meurt' en petits scintillements violets, comme si l'espace-temps
+    se d\xE9chirait. Des formes longilignes et vaporeuses, laissant derri\xE8re elles
+    une poussi\xE8re d'\xE9toiles sombre qui \xE9voque une nuit \xE9ternelle."
+  passiveName: "Pr\xE9dateur"
+  passiveMechanic: "Poser une emb\xFBche = +0.5 jauge. D\xE9clencher une emb\xFBche
+    = +1 jauge. Chaque palier augmente les d\xE9g\xE2ts des emb\xFBches et d\xE9bloque
+    des bonus de mobilit\xE9."
+  stageBase:
+    label: Base
+    jaugeMin: 0
+    jaugeMax: 2
+    effectDescription: "+10% d\xE9g\xE2ts d'emb\xFBche. Applique Traqu\xE9 si emb\xFBche
+      d\xE9clench\xE9e."
+  stageEveille:
+    label: "\xC9veill\xE9"
+    jaugeMin: 3
+    jaugeMax: 4
+    effectDescription: "+20% d\xE9g\xE2ts d'emb\xFBche. -1 PM/emb\xFBche d\xE9clench\xE9e."
+  stageEnrage:
+    label: "Enrag\xE9"
+    jaugeMin: 5
+    jaugeMax: -1
+    effectDescription: "+30% d\xE9g\xE2ts d'emb\xFBche. D\xE9bloque Traquenard."
+  enragedSpellName: Traquenard
+  enragedSpellDescription: "1 PA \u2014 Port\xE9e 3 \u2014 T\xE9l\xE9portation case
+    adjacente + 170 d\xE9g\xE2ts + Paralysie."
+  attackSpells: []
+  tacticSpells: []
+  survivalSpells: []

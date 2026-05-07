@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "generated": "2026-05-06",
+    "palette": "apollo.hex",
+    "format": "64x64 pixel art, 1-direction static icon",
+    "base_url": "https://backblaze.pixellab.ai/file/pixellab-characters/objects/2f9ba3dd-e31f-42c8-b430-845dd0dbf69c/{id}/rotations/unknown.png"
+  },
+  "ghostra": {
+    "lore": "Les Revenants de l'Angle Mort — Assassin dorsal, palette violet spectral #090a14 → #df84a5",
+    "offensifs": {
+      "Lame Spectrale":        { "id": "7c15f51c-3d65-46ad-b6ab-57d2e909009f", "pa": 3, "dmg": "115 + bonus dorsal" },
+      "Frappe Fantôme":        { "id": "9a1f9795-635d-44ca-9ac7-65c3c0a571cb", "pa": 4, "dmg": "130 + téléport + Plaie si dorsal" },
+      "Lame Vorace Spectrale": { "id": "0a77e4fb-a93d-473a-92d3-b9edbb8b5353", "pa": 3, "dmg": "100 + 60 si Plaie Ouverte" },
+      "Saigne-Âme":            { "id": "ddacdfd6-03c7-4a9e-bb55-aeb804c1061d", "pa": 4, "dmg": "130 + 70 consomme Plaie" },
+      "Danse des Lames":       { "id": "5ceae77b-4432-4c87-835e-b56fe5b50fc3", "pa": 5, "dmg": "AoE 8 cases — 110 + 50 dorsal" },
+      "Saignée (ENRAGÉ)":      { "id": "f62fe601-024a-4275-ae95-6ff249c64680", "pa": 1, "dmg": "200 + Plaie Ouverte · 1x/match" }
+    },
+    "tactiques": {
+      "Pas dans l'Ombre":  { "id": "a6433685-b9c8-4821-9ed4-54a1bc8530df", "pa": 2, "effet": "Téléporte 4 cases" },
+      "Volte-Face":        { "id": "4ce2e7d9-c753-4f2d-a3c3-1df5c08383e6", "pa": 2, "effet": "Pivote cible 180°" },
+      "Désorientation":    { "id": "a0847acf-638a-4574-b40c-85ef069deebd", "pa": 3, "effet": "-1 PM + fige direction 1 tour" },
+      "Dague Lancée":      { "id": "16ddf8cc-a74e-4fe9-ba40-99f7608b9abd", "pa": 2, "effet": "50 dmg + force regard vers lanceur" },
+      "Marque de l'Ombre": { "id": "91a0b0d3-15dd-4f1e-abf8-2f7c826301f1", "pa": 2, "effet": "+15% dmg 2 tours" }
+    },
+    "survie": {
+      "Voile Spectral":   { "id": "eb0d5171-d46c-4891-ab8a-cfc9ed767932", "pa": 2, "effet": "Retire tous DoT · 1x/match" },
+      "Réplique Fantôme": { "id": "f042399d-fe2f-4d8e-b96b-1109e4e32b7d", "pa": 3, "effet": "Leurre 200 HP 2t + 60 HP si détruit" },
+      "Pas de l'Au-Delà": { "id": "e423322f-d0fa-47b9-ab41-ab59d101ff84", "pa": 2, "effet": "+2 PM + traverse unités" },
+      "Linceul d'Ombres": { "id": "c03d314b-7946-4f29-8d50-d8357f8528f9", "pa": 3, "effet": "130 bouclier 2t + riposte mêlée 40 dmg" },
+      "Dernier Pas":      { "id": "31e0608c-b298-403a-b9d6-90adb3d857b4", "pa": 4, "effet": "180 HP + téléporte 5 cases · <30% HP" }
+    }
+  },
+  "soulrender": {
+    "lore": "La Race du Sang-Maudit — Berserker mêlée saignement, palette rouge sang #241527 → #cf573c + or brûlant",
+    "offensifs": {
+      "Tranche-Âme":          { "id": "4e524f84-4c9e-4f66-a48f-9dbc3da44111", "pa": 3, "dmg": "110 mêlée" },
+      "Lame Vorace":          { "id": "a19c41f1-f18a-4fb2-b86d-354d736d52b4", "pa": 4, "dmg": "105 + Saignement 25/tour × 2t" },
+      "Ouvre-Plaie":          { "id": "23d72f2a-f9c8-4c2d-822b-5e57bf9f2e0d", "pa": 2, "dmg": "50 + 50 si saigne" },
+      "Détonation Sanglante": { "id": "9e216845-0a69-490b-90a7-c0aed5e6a7ec", "pa": 4, "dmg": "AoE croix 3 — 100 + 70 si centre saigne" },
+      "Curée":                { "id": "fd981d07-f1f7-40e0-bb51-c41f6615172b", "pa": 3, "dmg": "85 + 40 si cible <50% HP" },
+      "Âme Lacérée (ENRAGÉ)": { "id": "a22de162-5722-42f0-b7d8-8b9a1c2e131d", "pa": 1, "dmg": "130 dmg + 70 HP regen · 1x/match" }
+    },
+    "tactiques": {
+      "Pacte de Sang":    { "id": "b31682ad-61d5-47d0-805d-53b6c8588429", "pa": 2, "effet": "-50 HP + auto-saign + prochain sort -1 PA" },
+      "Charge Brutale":   { "id": "0fc02929-5502-4e60-95a4-d5bf52cb09f5", "pa": 3, "effet": "Charge 4 cases — 90 dmg sans PM" },
+      "Empoignade":       { "id": "68bda46f-48b2-4837-8efc-f2ee4c9fe922", "pa": 3, "effet": "Tire cible adjacent — 60 dmg" },
+      "Marque de Carnage":{ "id": "31c50272-4f72-487d-91b9-d8bdec45e8ec", "pa": 2, "effet": "+15% dmg lanceur 2 tours" },
+      "Rage Insatiable":  { "id": "15d645a0-de86-4e47-af52-0d36b8893254", "pa": 3, "effet": "2t: sorts offensifs regen 1 PA (max 1/tour)" }
+    },
+    "survie": {
+      "Cautérisation":   { "id": "09deb623-fc10-48f4-aab7-e9e764d45e98", "pa": 2, "effet": "Retire saignements + 50 HP/saignement retiré" },
+      "Peau de Fer":     { "id": "5b665354-1302-44c1-abee-b82a32022958", "pa": 3, "effet": "120 PV bouclier 2 tours" },
+      "Sève Vive":       { "id": "c632919b-be3c-4a11-8017-313efec37c1d", "pa": 2, "effet": "80 HP + 50 si saigne" },
+      "Riposte Carmin":  { "id": "33f2209b-04ef-45c3-b968-fcc5cb382970", "pa": 3, "effet": "1t: riposte mêlée 70 dmg attaquant (max 3)" },
+      "Dernier Souffle": { "id": "e27c2a13-d793-4333-91d4-264f762b9888", "pa": 4, "effet": "180 HP · <30% HP" }
+    }
+  }
+}

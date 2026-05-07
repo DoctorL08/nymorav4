@@ -1,0 +1,52 @@
+{
+  "ghostra": {
+    "palette_root_id": "6ccb7fdf-d7bb-4b7d-9aa9-db55208f683a",
+    "offensifs": {
+      "Lame Spectrale":        "6ccb7fdf-d7bb-4b7d-9aa9-db55208f683a",
+      "Frappe Fantôme":        "d3a4c33b-9999-4358-9416-4ada565d4eef",
+      "Lame Vorace Spectrale": "6f5205f6-28ed-4bcb-96a4-6a65c4ad812e",
+      "Saigne-Âme":            "c9cbd39a-aa49-4da6-a11f-63b10d818160",
+      "Danse des Lames":       "4e824165-63dc-4d04-81b0-30f9d31b5482",
+      "Saignée (Enragé)":      "d4676e04-6099-44fa-a973-b15618920e22"
+    },
+    "tactiques": {
+      "Pas dans l'Ombre":  "ce781c66-6761-413b-a801-e96836fbdae4",
+      "Volte-Face":        "6532e02a-4766-47ca-9c3b-7f218eadb66d",
+      "Désorientation":    "6bed74ab-9d4b-4608-a0db-e5df1381d55c",
+      "Dague Lancée":      "3a7dad2b-6a15-433a-af41-5603b08597f5",
+      "Marque de l'Ombre": "4a9f0a7b-24ed-41ad-9b73-158a2c26bd52"
+    },
+    "survie": {
+      "Voile Spectral":    "52bf40c5-1034-4d63-9878-ef71a5992d0b",
+      "Réplique Fantôme":  "aa1a12de-491d-421d-9823-733b3064bae1",
+      "Pas de l'Au-Delà":  "cce187b9-637a-4984-b8b0-0c98591046bd",
+      "Linceul d'Ombres":  "56f33208-46d0-4f3f-b896-0a54783df23a",
+      "Dernier Pas":       "91f9540f-995a-44cf-9c01-7275cebbf0fd"
+    }
+  },
+  "soulrender": {
+    "palette_root_id": "10771ca8-12d8-4370-ae9b-028a65ff2c82",
+    "offensifs": {
+      "Tranche-Âme":          "10771ca8-12d8-4370-ae9b-028a65ff2c82",
+      "Lame Vorace":          "b5013299-47a7-4235-a697-6922fce485fe",
+      "Ouvre-Plaie":          "43f246cd-132c-4835-938e-50ec31583bee",
+      "Détonation Sanglante": "ffb06af4-fcdd-4f56-9d59-5d75328a6572",
+      "Curée":                "389d805a-dc2f-4832-90a5-925897c48e3f",
+      "Âme lacérée (Enragé)": "c246a298-1992-4383-af07-e501de38a3bf"
+    },
+    "tactiques": {
+      "Pacte de Sang":    "9623c188-903f-44fc-9e51-813492430577",
+      "Charge Brutale":   "caf6473a-450d-422b-afb4-f4f67fc99924",
+      "Empoignade":       "878a8837-d039-4ac7-ba54-bedccd3988bf",
+      "Marque de Carnage":"ee2ef000-c890-4dbf-b9fa-85a68ab588cb",
+      "Rage Insatiable":  "8eb97073-eeb7-4781-a7df-21fafadeb87a"
+    },
+    "survie": {
+      "Cautérisation":   "a5423c5b-22a8-43f8-804b-3d52e319462c",
+      "Peau de Fer":     "c00b36c8-08e0-4589-b51c-b11386264930",
+      "Sève Vive":       "6a0f7702-d82f-4c06-af13-4779b7d19af8",
+      "Riposte Carmin":  "246787f0-0796-42e3-b043-c686f5c376de",
+      "Dernier Souffle": "a44d9103-19ea-4abc-936a-a29c31820b82"
+    }
+  }
+}

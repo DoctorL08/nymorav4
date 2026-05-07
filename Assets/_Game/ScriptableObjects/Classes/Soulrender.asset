@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b41657a3055ca044895352d380bfbc7, type: 3}
+  m_Name: Soulrender
+  m_EditorClassIdentifier: 
+  classId: 1
+  displayName: Soulrender
+  emoji: "\U0001FA78"
+  characterKey: Soulrender
+  lore: "Les Soulrenders sont les h\xE9ritiers d'un pacte de guerre oubli\xE9, o\xF9
+    le sang a cess\xE9 d'\xEAtre un fluide vital pour devenir une arme brute.\n\nN\xE9s
+    dans les ar\xE8nes de souffrance, ils ne connaissent la paix que dans l'h\xE9morragie.\n\nUne
+    atmosph\xE8re de fer rouill\xE9 et de vapeur chaude. Leur pr\xE9sence sature
+    l'air d'une odeur de cuivre et du son sourd d'un c\u0153ur qui tambourine contre
+    la r\xE9alit\xE9. Des silhouettes nerveuses entour\xE9es d'une brume rouge pixelis\xE9e
+    qui semble s'\xE9chapper de leurs pores comme une sueur \xE9carlate."
+  passiveName: "Vol d'\xC2me"
+  passiveMechanic: "+1 jauge par 60 d\xE9g\xE2ts inflig\xE9s. Chaque palier augmente
+    le bonus de d\xE9g\xE2ts et acc\xE9l\xE8re la mont\xE9e de jauge."
+  stageBase:
+    label: Base
+    jaugeMin: 0
+    jaugeMax: 2
+    effectDescription: "+5% d\xE9g\xE2ts."
+  stageEveille:
+    label: "\xC9veill\xE9"
+    jaugeMin: 3
+    jaugeMax: 5
+    effectDescription: "+10% d\xE9g\xE2ts."
+  stageEnrage:
+    label: "Enrag\xE9"
+    jaugeMin: 6
+    jaugeMax: -1
+    effectDescription: "+20% d\xE9g\xE2ts. D\xE9bloque \xC2me Lac\xE9r\xE9e."
+  enragedSpellName: "\xC2me Lac\xE9r\xE9e"
+  enragedSpellDescription: "1 PA \u2014 Port\xE9e 1 \u2014 180 d\xE9g\xE2ts. Le lanceur
+    r\xE9cup\xE8re 90 HP."
+  enragedSpell: {fileID: 11400000, guid: bc929274d7e161048bc5988e71a51e98, type: 2}
+  passiveData: {fileID: 11400000, guid: ed8fbc8915610644cb7f39c5e293bd04, type: 2}
+  attackSpells:
+  - {fileID: 11400000, guid: a596e2903b9516a409a501fdc99e0d3f, type: 2}
+  - {fileID: 11400000, guid: 8f1394fa47c764749b414b7aa8bfcc37, type: 2}
+  - {fileID: 11400000, guid: f675d9f8372d4684bac6c96031f44fa3, type: 2}
+  - {fileID: 11400000, guid: 1f5332ab2571a114888a58c1226fe58c, type: 2}
+  - {fileID: 11400000, guid: 75aef8c4409e0224db57a329cc0d1125, type: 2}
+  tacticSpells:
+  - {fileID: 11400000, guid: d9a584bec84bb7349aa5e20253f6dbff, type: 2}
+  - {fileID: 11400000, guid: 64b45352d581ada488b6fe2f6bd84af4, type: 2}
+  - {fileID: 11400000, guid: b058dac059d646f408efe02e49e9c054, type: 2}
+  - {fileID: 11400000, guid: bdaabb5f9d3f4f24a821a14e0d49e0af, type: 2}
+  - {fileID: 11400000, guid: de2b79120b45ba9408ab02888434279e, type: 2}
+  survivalSpells:
+  - {fileID: 11400000, guid: dba892a090c2d8b41a43c522254d32d2, type: 2}
+  - {fileID: 11400000, guid: c72bda9b8f328ea4693b3918fd4566d8, type: 2}
+  - {fileID: 11400000, guid: 4e664ebf74c42994cb43f88e9d1c0bbc, type: 2}
+  - {fileID: 11400000, guid: 051a4ca187ab096428de7451d0f0784d, type: 2}
+  - {fileID: 11400000, guid: cc24eca415059a747bdd9b5091313b90, type: 2}

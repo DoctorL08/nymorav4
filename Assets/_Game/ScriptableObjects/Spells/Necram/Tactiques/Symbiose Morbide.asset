@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af2cb7963aca5f43bbe22908a1e7159, type: 3}
+  m_Name: Symbiose Morbide
+  m_EditorClassIdentifier: 
+  spellName: Symbiose Morbide
+  deckCategory: 2
+  icon: {fileID: 0}
+  description: "Pendant 2 tours : chaque tick de Venin sur un ennemi soigne le lanceur
+    de 8 PV (max 4 marques comptent).\nSoin approximatif : +32 PV \xE0 l'activation."
+  synergyDescription: "Sustain passif \u2014 transforme les DoT en r\xE9g\xE9n\xE9ration,
+    redoutable combin\xE9 avec Brume Toxique."
+  paCost: 3
+  cooldown: 3
+  isMeleeOnly: 0
+  rangeMin: 0
+  rangeMax: 0
+  requiresLineOfSight: 0
+  ignoresLineOfSight: 0
+  zoneType: 5
+  aoeRadius: 0
+  excludeCasterFromHarmfulAoE: 0
+  effects:
+  - type: 1
+    value: 32
+    duration: 0
+    condition: 0
+    conditionThreshold: 0
+    conditionMultiplier: 1
+  castAnimationBaseId: 
