@@ -52,7 +52,7 @@ public class ArenaGenerator : MonoBehaviour
     [Tooltip("Si activé et que ≥ 2 joueurs sont dans la room Photon, le MasterClient broadcast " +
              "un seed via Custom Room Properties et tous les clients génèrent la même arène.\n\n" +
              "ACTIVER pour les scènes partagées (Hub, Ranked1v1).\n" +
-             "DÉSACTIVER pour les scènes solo (Monjeu/Training) — sinon l'arène solo serait " +
+             "DÉSACTIVER pour les scènes solo (Training) — sinon l'arène solo serait " +
              "synchronisée avec d'autres clients potentiellement encore dans HUB_GLOBAL.")]
     public bool synchronizeWithRoom = true;
 

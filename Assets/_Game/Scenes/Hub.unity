@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2004309783a4b4d914c647b34c1cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trainingSceneName: Monjeu
+  trainingSceneName: Training
   hubSceneName: Hub
 --- !u!4 &1132068555
 Transform:

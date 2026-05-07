@@ -67,7 +67,7 @@ public static class SpellIconLoader
         else
         {
             Debug.LogWarning($"[SpellIconLoader] Aucun asset trouvé dans Resources/{resourcesPath}. " +
-                             "Vérifier que les PNG sont bien dans Assets/Resources/SpellIcons/ghostra/ et soulrender/.");
+                             "Vérifier que les PNG sont bien dans Assets/_Game/Resources/SpellIcons/ghostra/ et soulrender/.");
         }
     }
 

@@ -546,7 +546,7 @@ public class HubHUD : MonoBehaviour
         else
         {
             Debug.LogWarning("[HubHUD] HubManager introuvable — chargement direct par nom.");
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Monjeu");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Training");
         }
     }
 
@@ -1165,7 +1165,6 @@ public class HubHUD : MonoBehaviour
     {
         const float SLOT_SIZE = 68f;
         const float SLOT_GAP  = 6f;
-        const float PAD_V     = 12f;
 
         _deckBarRoot = MakeChild(panel, "DeckBar");
         var barRt    = RT(_deckBarRoot);
@@ -1348,7 +1347,6 @@ public class HubHUD : MonoBehaviour
     {
         const float TITLE_H = 50f;
         const float SEP_H   = 2f;
-        const float CARD_W  = 300f;
         const float PAD     = 16f;
 
         var cp   = MakeChild(panel, "ClassPanel");

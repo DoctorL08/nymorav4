@@ -192,4 +192,16 @@ public class TurnManager : MonoBehaviour
             OnCombatEnd?.Invoke(-1);
         }
     }
+
+    /// <summary>
+    /// Phase 1.3 — Force la fin du combat avec une équipe gagnante imposée (forfait par
+    /// déconnexion ou abandon volontaire). Idempotent : sans effet si combat déjà terminé.
+    /// </summary>
+    public void ForceEndCombat(int winnerTeamId)
+    {
+        if (!combatActive) return;
+        combatActive = false;
+        turnActive   = false;
+        OnCombatEnd?.Invoke(winnerTeamId);
+    }
 }

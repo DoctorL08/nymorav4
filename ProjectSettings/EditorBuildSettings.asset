@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/_Game/Scenes/Hub.unity
     guid: 3cc53a1d682c4994aa44be5666a611df
   - enabled: 1
-    path: Assets/Monjeu.unity
+    path: Assets/_Game/Scenes/Training.unity
     guid: c71e8afad6e035446a95b7a27ef5c292
   - enabled: 1
     path: Assets/_Game/Scenes/Ranked1v1.unity
-    guid: e908889f08ff5904aa486b4e2dadd729
+    guid: 8ba2c76188a5e38479e69b899c95e8dc
   - enabled: 1
-    path: Assets/Boot_Network.unity
+    path: Assets/_Game/Scenes/Boot_Network.unity
     guid: f819a7839e89c954cbdb52da33e8f99e
   m_configObjects: {}

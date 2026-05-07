@@ -14,7 +14,7 @@ using UnityEngine;
 ///   Sprite Mode       → Single
 ///   Filter Mode       → Point (no filter)   ← pixel art
 ///   Compression       → None
-///   Pixels Per Unit   → 64 (aligné avec GridConfig.tileWidth 1)
+///   Pixels Per Unit   → 128 (Phase 2.2 — migration 128×128, aligné avec GridConfig.tileWidth 1)
 /// </summary>
 [CreateAssetMenu(fileName = "TileSpriteRegistry", menuName = "Arena/Tile Sprite Registry")]
 public class TileSpriteRegistry : ScriptableObject

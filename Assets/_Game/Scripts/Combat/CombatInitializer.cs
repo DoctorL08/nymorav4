@@ -621,6 +621,20 @@ public class CombatInitializer : MonoBehaviour
             ShowReturnToHubButton();
     }
 
+    /// <summary>
+    /// Phase 1.3 — Conclut le combat sur forfait (déconnexion adversaire ou TTL Photon expiré).
+    /// Délègue à <see cref="TurnManager.ForceEndCombat"/> pour réutiliser le flux de fin standard
+    /// (panneaux victoire/défaite + bouton retour Hub) via l'event <c>OnCombatEnd</c>.
+    /// Réservé aussi pour la Phase 4.2 (abandon volontaire) via <c>OracleCombatNetBridge.RpcForceForfeit</c>.
+    /// </summary>
+    public void OnNetworkForfeit(int winnerTeamId)
+    {
+        if (phase == CombatPhase.End) return;
+        Debug.Log($"[CombatInitializer] Forfait réseau — équipe gagnante : {winnerTeamId}.");
+        if (TurnManager.Instance != null)
+            TurnManager.Instance.ForceEndCombat(winnerTeamId);
+    }
+
     void ShowReturnToHubButton()
     {
         var canvas = FindFirstObjectByType<Canvas>(FindObjectsInactive.Include);

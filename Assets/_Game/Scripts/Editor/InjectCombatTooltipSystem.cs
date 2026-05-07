@@ -12,7 +12,7 @@ public static class InjectCombatTooltipSystem
 {
     static readonly string[] TargetScenes =
     {
-        "Assets/Monjeu.unity",
+        "Assets/_Game/Scenes/Training.unity",
         "Assets/_Game/Scenes/Ranked1v1.unity",
     };
 

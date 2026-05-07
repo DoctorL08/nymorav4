@@ -77,3 +77,6 @@ Thumbs.db
 
 # Claude Code local config
 /.claude/
+
+# Backups locaux (Phase 1+ — non versionnés sur GitHub)
+/_Save_fichiers_critiques/

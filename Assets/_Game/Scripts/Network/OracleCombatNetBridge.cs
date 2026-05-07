@@ -10,7 +10,7 @@ using Photon.Realtime;
 /// </summary>
 [RequireComponent(typeof(PhotonView))]
 [DisallowMultipleComponent]
-public class OracleCombatNetBridge : MonoBehaviour
+public class OracleCombatNetBridge : MonoBehaviourPunCallbacks
 {
     public static OracleCombatNetBridge Instance { get; private set; }
 
@@ -18,10 +18,18 @@ public class OracleCombatNetBridge : MonoBehaviour
     [Tooltip("Nombre minimum de joueurs dans la room pour router les commandes en réseau (2 = 1v1).")]
     public int minPlayersForNetworkCombat = 2;
 
+    [Header("Déconnexion (Phase 1.3)")]
+    [Tooltip("Délai avant forfait automatique quand l'adversaire est inactif (secondes).")]
+    public float forfeitTimerSeconds = 60f;
+    [Tooltip("Fréquence du check d'inactivité de l'adversaire (secondes).")]
+    public float inactivityPollInterval = 1f;
+
     [Header("Debug")]
     public bool logRpc = true;
 
     PhotonView _pv;
+    Player     _trackedInactive;   // adversaire en attente de reconnexion (null si tout va bien)
+    float      _nextPollAt;
 
     /// <summary>Vrai si Photon indique une partie multi locale (room + assez de joueurs).</summary>
     public bool ShouldSendCommandsOverNetwork =>
@@ -271,6 +279,136 @@ public class OracleCombatNetBridge : MonoBehaviour
         }
         if (logRpc) Debug.Log($"[OracleCombatNet] ApplyEndTurn slot={combatSlot}");
         TurnManager.Instance.EndTurn();
+    }
+
+    // =========================================================
+    // Phase 1.3 — Gestion déconnexion / forfait / migration master
+    // =========================================================
+
+    void Update()
+    {
+        if (Time.time < _nextPollAt) return;
+        _nextPollAt = Time.time + inactivityPollInterval;
+        PollInactivityIfCombatActive();
+    }
+
+    /// <summary>
+    /// Détecte si l'adversaire devient inactif (déconnexion réseau côté Photon, PlayerTtl actif)
+    /// pendant un combat actif → affiche le compteur de forfait. Si l'adversaire revient
+    /// (IsInactive repasse à false), le compteur est annulé.
+    /// </summary>
+    void PollInactivityIfCombatActive()
+    {
+        if (!ShouldSendCommandsOverNetwork) return;
+        if (TurnManager.Instance == null || !TurnManager.Instance.IsCombatActive) return;
+
+        Player nowInactive = null;
+        foreach (var p in PhotonNetwork.PlayerListOthers)
+        {
+            if (p != null && p.IsInactive) { nowInactive = p; break; }
+        }
+
+        if (nowInactive != null && _trackedInactive == null)
+        {
+            _trackedInactive = nowInactive;
+            string nick = string.IsNullOrEmpty(nowInactive.NickName) ? "Adversaire" : nowInactive.NickName;
+            if (logRpc) Debug.Log($"[OracleCombatNet] {nick} (#{nowInactive.ActorNumber}) inactif — démarrage timer forfait {forfeitTimerSeconds}s.");
+            DisconnectionTimerUI.Show(nick, forfeitTimerSeconds, OnDisconnectionTimeout);
+        }
+        else if (_trackedInactive != null && !_trackedInactive.IsInactive)
+        {
+            // Reconnexion détectée
+            if (logRpc) Debug.Log($"[OracleCombatNet] {_trackedInactive.NickName} reconnecté — annulation timer forfait.");
+            _trackedInactive = null;
+            DisconnectionTimerUI.Hide();
+        }
+    }
+
+    /// <summary>Callback du <see cref="DisconnectionTimerUI"/> quand le compteur atteint zéro.</summary>
+    void OnDisconnectionTimeout()
+    {
+        if (CombatInitializer.Instance == null || TurnManager.Instance == null) return;
+        if (!TurnManager.Instance.IsCombatActive) return;
+
+        int winnerTeamId = GetLocalTeamId();
+        if (logRpc) Debug.Log($"[OracleCombatNet] Timer forfait expiré — victoire équipe {winnerTeamId}.");
+        _trackedInactive = null;
+        // Forfait local-only : l'adversaire est définitivement absent (l'TTL Photon
+        // expirera côté serveur de toute façon, déclenchant OnPlayerLeftRoom).
+        CombatInitializer.Instance.OnNetworkForfeit(winnerTeamId);
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        base.OnPlayerLeftRoom(otherPlayer);
+        if (otherPlayer == null) return;
+        if (logRpc) Debug.Log($"[OracleCombatNet] OnPlayerLeftRoom : {otherPlayer.NickName} (#{otherPlayer.ActorNumber}) — Leave volontaire ou TTL expiré.");
+
+        // Si on est en plein combat → forfait local-only (l'adversaire est définitivement parti).
+        // Couvre deux cas :
+        //   (a) Leave volontaire pendant le combat → forfait immédiat (pas de timer)
+        //   (b) TTL Photon (60s) expiré pendant le timer UI → fin de combat
+        if (TurnManager.Instance == null || !TurnManager.Instance.IsCombatActive) return;
+
+        _trackedInactive = null;
+        DisconnectionTimerUI.Hide();
+        if (CombatInitializer.Instance != null)
+            CombatInitializer.Instance.OnNetworkForfeit(GetLocalTeamId());
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        base.OnMasterClientSwitched(newMasterClient);
+        if (newMasterClient == null) return;
+        if (logRpc) Debug.Log($"[OracleCombatNet] OnMasterClientSwitched : nouveau master = {newMasterClient.NickName} (#{newMasterClient.ActorNumber}).");
+        // Aucun rôle master-only n'est stocké côté combat (cf. audit Phase 1.3) :
+        //   • les validations RpcMasterValidate* lisent IsMasterClient en temps réel,
+        //   • le timer du tour de TurnManager tourne côté chaque client local,
+        //   • OnDeath et CheckVictoryCondition sont locaux + idempotents.
+        // Le nouveau master prend automatiquement le relais sur les RPC master-only.
+    }
+
+    /// <summary>
+    /// Réservé Phase 4.2 (abandon volontaire) : un client demande au master de broadcaster
+    /// un forfait synchrone à toute la room. La 1.3 utilise un forfait local-only car
+    /// l'adversaire concerné est par définition déconnecté.
+    /// </summary>
+    public void TriggerForfeit(int winnerTeamId)
+    {
+        if (!ShouldSendCommandsOverNetwork) return;
+        if (PhotonNetwork.IsMasterClient)
+            _pv.RPC(nameof(RpcForceForfeit), RpcTarget.All, winnerTeamId);
+        else
+            _pv.RPC(nameof(RpcRequestForfeit), RpcTarget.MasterClient, winnerTeamId);
+    }
+
+    [PunRPC]
+    void RpcRequestForfeit(int winnerTeamId, PhotonMessageInfo info)
+    {
+        if (!PhotonNetwork.IsMasterClient) return;
+        if (info.Sender == null) return;
+        // Le seul forfait recevable d'un non-master est SON propre abandon → vainqueur = équipe adverse.
+        int loserSlot = info.Sender.IsMasterClient ? 0 : 1;
+        int actualWinnerTeam = loserSlot == 0 ? 2 : 1;
+        if (winnerTeamId != actualWinnerTeam)
+        {
+            if (logRpc) Debug.LogWarning($"[OracleCombatNet] RpcRequestForfeit : winnerTeam reçu={winnerTeamId} vs attendu={actualWinnerTeam} — corrigé.");
+            winnerTeamId = actualWinnerTeam;
+        }
+        _pv.RPC(nameof(RpcForceForfeit), RpcTarget.All, winnerTeamId);
+    }
+
+    [PunRPC]
+    void RpcForceForfeit(int winnerTeamId, PhotonMessageInfo info)
+    {
+        if (info.Sender != null && !info.Sender.IsMasterClient)
+        {
+            if (logRpc) Debug.LogWarning("[OracleCombatNet] RpcForceForfeit ignoré : sender non master.");
+            return;
+        }
+        if (logRpc) Debug.Log($"[OracleCombatNet] RpcForceForfeit reçu : winnerTeamId={winnerTeamId}.");
+        if (CombatInitializer.Instance != null)
+            CombatInitializer.Instance.OnNetworkForfeit(winnerTeamId);
     }
 
     // =========================================================

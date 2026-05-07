@@ -135,8 +135,14 @@ public class HubMatchmaker : MonoBehaviourPunCallbacks
         {
             MaxPlayers          = maxPlayersFor1v1,
             IsVisible           = true,
-            IsOpen              = true,
-            CleanupCacheOnLeave = true
+            IsOpen               = true,
+            CleanupCacheOnLeave = true,
+            // Phase 1.3 — fenêtre de reconnexion : un joueur déconnecté reste dans la room
+            // pendant 60s (IsInactive=true) avant d'être retiré définitivement (déclenche
+            // OnPlayerLeftRoom). EmptyRoomTtl couvre le cas où les deux clients perdent
+            // la connexion simultanément.
+            PlayerTtl    = 60000,
+            EmptyRoomTtl = 60000
         };
         PhotonNetwork.JoinRandomOrCreateRoom(
             null,

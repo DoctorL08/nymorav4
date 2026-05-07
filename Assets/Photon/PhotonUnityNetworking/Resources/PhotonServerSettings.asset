@@ -49,6 +49,8 @@ MonoBehaviour:
   - RpcMasterValidatePlacement
   - RpcApplyChat
   - RpcSetHubClassId
+  - RpcForceForfeit
+  - RpcRequestForfeit
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

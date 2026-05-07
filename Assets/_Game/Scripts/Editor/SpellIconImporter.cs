@@ -5,13 +5,13 @@ using System.IO;
 
 /// <summary>
 /// Post-processeur d'import Unity.
-/// Détecte automatiquement les PNG placés dans Assets/Resources/SpellIcons/
+/// Détecte automatiquement les PNG placés dans Assets/_Game/Resources/SpellIcons/
 /// et les configure comme Sprite (2D and UI), lecture activée, mipmaps désactivés.
 /// S'exécute à chaque import de fichier (y compris les ajouts en masse).
 /// </summary>
 public class SpellIconImporter : AssetPostprocessor
 {
-    const string TargetFolder = "Assets/Resources/SpellIcons";
+    const string TargetFolder = "Assets/_Game/Resources/SpellIcons";
 
     void OnPreprocessTexture()
     {

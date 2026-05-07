@@ -10,18 +10,18 @@ using UnityEditor.SceneManagement;
 /// Ce qu'il fait :
 ///   1. Trouve « LocalPlayer » dans la scène courante (Hub)
 ///   2. Assigne CharacterStats + DeckData sur le TacticalCharacter
-///   3. Ouvre Assets/Monjeu.unity en mode additif (pas de Play — juste la donnée sérialisée)
+///   3. Ouvre Assets/_Game/Scenes/Training.unity en mode additif (pas de Play — juste la donnée sérialisée)
 ///   4. Copie le PlayerAnimator du personnage joueur (stats, frames Idle/Walk/Death,
 ///      spriteScale, visualOffset, fps, remappage de direction)
-///   5. Ferme Monjeu.unity sans sauvegarder
+///   5. Ferme Training.unity sans sauvegarder
 ///   6. Sauvegarde la scène Hub
 ///
 /// À lancer UNE FOIS après "Oracle > Create Hub Scene", ou après chaque
-/// modification des animations dans Monjeu.unity.
+/// modification des animations dans Training.unity.
 /// </summary>
 public static class OracleHubPlayerSetup
 {
-    const string MONJEU_PATH    = "Assets/Monjeu.unity";
+    const string TRAINING_PATH   = "Assets/_Game/Scenes/Training.unity";
     const string PATH_STATS     = "Assets/_Game/ScriptableObjects/PlayerStats.asset";
     const string PATH_DECK      = "Assets/_Game/ScriptableObjects/PlayerDeck.asset";
     const string LOCAL_PLAYER   = "LocalPlayer";
@@ -75,14 +75,14 @@ public static class OracleHubPlayerSetup
 
         EditorUtility.SetDirty(hubTC);
 
-        // ── 3. Ouvrir Monjeu.unity en mode additif ────────────────────
-        var monjeuScene = EditorSceneManager.OpenScene(MONJEU_PATH, OpenSceneMode.Additive);
+        // ── 3. Ouvrir Training.unity en mode additif ────────────────────
+        var trainingScene = EditorSceneManager.OpenScene(TRAINING_PATH, OpenSceneMode.Additive);
 
-        // ── 4. Trouver le PlayerAnimator du joueur dans Monjeu ────────
+        // ── 4. Trouver le PlayerAnimator du joueur dans Training ────────
         PlayerAnimator    sourcePA = null;
         TacticalCharacter sourceTC = null;
 
-        foreach (var root in monjeuScene.GetRootGameObjects())
+        foreach (var root in trainingScene.GetRootGameObjects())
         {
             // On cherche la première racine contenant à la fois
             // TacticalCharacter ET PlayerAnimator (les personnages jouables).
@@ -106,7 +106,7 @@ public static class OracleHubPlayerSetup
         if (sourcePA == null)
         {
             // Fallback : prendre le premier PlayerAnimator trouvé
-            foreach (var root in monjeuScene.GetRootGameObjects())
+            foreach (var root in trainingScene.GetRootGameObjects())
             {
                 sourcePA = root.GetComponentInChildren<PlayerAnimator>(true);
                 if (sourcePA != null) { sourceTC = sourcePA.GetComponent<TacticalCharacter>(); break; }
@@ -117,7 +117,7 @@ public static class OracleHubPlayerSetup
         {
             CopyPlayerAnimator(sourcePA, hubPA);
             assignedCount++;
-            Debug.Log($"[HubPlayerSetup] Animations copiées depuis « {sourcePA.gameObject.name} » (Monjeu.unity).");
+            Debug.Log($"[HubPlayerSetup] Animations copiées depuis « {sourcePA.gameObject.name} » (Training.unity).");
         }
         else if (hubPA == null)
         {
@@ -125,7 +125,7 @@ public static class OracleHubPlayerSetup
         }
         else
         {
-            Debug.LogWarning("[HubPlayerSetup] Aucun PlayerAnimator trouvé dans Monjeu.unity — anime le Hub player manuellement.");
+            Debug.LogWarning("[HubPlayerSetup] Aucun PlayerAnimator trouvé dans Training.unity — anime le Hub player manuellement.");
         }
 
         // Copier le SpriteRenderer depuis TacticalCharacter source si le hub n'en a pas encore
@@ -140,8 +140,8 @@ public static class OracleHubPlayerSetup
             }
         }
 
-        // ── 5. Fermer Monjeu.unity SANS sauvegarder ───────────────────
-        EditorSceneManager.CloseScene(monjeuScene, removeScene: true);
+        // ── 5. Fermer Training.unity SANS sauvegarder ───────────────────
+        EditorSceneManager.CloseScene(trainingScene, removeScene: true);
 
         // ── 6. Sauvegarder la scène Hub ───────────────────────────────
         EditorSceneManager.MarkSceneDirty(hubScene);
@@ -152,7 +152,7 @@ public static class OracleHubPlayerSetup
             $"LocalPlayer mis à jour ({assignedCount} élément(s) assigné(s)) :\n\n" +
             $"  • CharacterStats : {(stats != null ? stats.name : "non trouvé")}\n" +
             $"  • DeckData       : {(deck  != null ? deck.name  : "non trouvé")}\n" +
-            $"  • Animations     : {(sourcePA != null ? "copiées depuis Monjeu.unity" : "non trouvées")}\n\n" +
+            $"  • Animations     : {(sourcePA != null ? "copiées depuis Training.unity" : "non trouvées")}\n\n" +
             "Lance la scène Hub pour tester le personnage.",
             "OK");
     }

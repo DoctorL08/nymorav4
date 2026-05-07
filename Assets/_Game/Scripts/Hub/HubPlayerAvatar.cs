@@ -44,13 +44,13 @@ public class HubPlayerAvatar : MonoBehaviourPunCallbacks
 
     // ── Lifecycle ─────────────────────────────────────────────────────────
 
-    void OnEnable()
+    public override void OnEnable()
     {
         base.OnEnable();
         SceneManager.sceneLoaded += HandleSceneLoaded;
     }
 
-    void OnDisable()
+    public override void OnDisable()
     {
         SceneManager.sceneLoaded -= HandleSceneLoaded;
         base.OnDisable();

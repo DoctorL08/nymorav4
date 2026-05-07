@@ -10,7 +10,7 @@ using System.Linq;
 /// Menu Unity : Oracle > Create Ranked1v1 Scene
 ///
 /// Ce que ça fait :
-///   1. Copie Assets/Monjeu.unity → Assets/_Game/Scenes/Ranked1v1.unity
+///   1. Copie Assets/_Game/Scenes/Training.unity → Assets/_Game/Scenes/Ranked1v1.unity
 ///   2. Ouvre Ranked1v1.unity
 ///   3. Sur CombatInitializer :
 ///        • combatMode       = Ranked1v1    (réseau, pas d'IA)
@@ -18,11 +18,11 @@ using System.Linq;
 ///        • skipPassiveSelection = false     (toujours sélection en ranked)
 ///   4. Sur OpponentAI (si présent) : désactive le composant
 ///      (il est déjà ignoré en IsNetworkDuel, mais on le désactive pour la clarté)
-///   5. Ajoute les deux scènes (Monjeu + Ranked1v1) aux Build Settings.
+///   5. Ajoute les deux scènes (Training + Ranked1v1) aux Build Settings.
 /// </summary>
 public static class OracleRanked1v1Setup
 {
-    const string SOURCE_SCENE = "Assets/Monjeu.unity";
+    const string SOURCE_SCENE = "Assets/_Game/Scenes/Training.unity";
     const string DEST_SCENE   = "Assets/_Game/Scenes/Ranked1v1.unity";
 
     [MenuItem("Oracle/Create Ranked1v1 Scene")]
@@ -129,7 +129,7 @@ public static class OracleRanked1v1Setup
         EditorSceneManager.SaveScene(scene, DEST_SCENE);
 
         // ── 5. Build Settings ─────────────────────────────────────────────
-        AddSceneToBuildSettings(SOURCE_SCENE);   // Training (Monjeu)
+        AddSceneToBuildSettings(SOURCE_SCENE);   // Training
         AddSceneToBuildSettings(DEST_SCENE);     // Ranked1v1
 
         AssetDatabase.Refresh();

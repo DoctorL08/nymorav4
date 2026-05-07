@@ -44,7 +44,9 @@ public class IsometricCamera : MonoBehaviour
 
     [Header("=== PIXEL ART ===")]
     public bool  pixelPerfect   = true;
-    public float pixelsPerUnit  = 32f;
+    // Phase 2.2 — migration 64×64 → 128×128 : PPU caméra doublé pour rester
+    // cohérent avec les sprites tiles passés en PPU 128 (et personnages PPU 200).
+    public float pixelsPerUnit  = 64f;
 
     // =========================================================
     // ÉTAT INTERNE

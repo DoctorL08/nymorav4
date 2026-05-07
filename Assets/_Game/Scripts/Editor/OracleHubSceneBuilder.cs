@@ -166,7 +166,7 @@ public static class OracleHubSceneBuilder
         // ════════════════════════════════════════════════════════════════
         var hubMgrGo = new GameObject("HubManager");
         var hubMgr   = hubMgrGo.AddComponent<HubManager>();
-        hubMgr.trainingSceneName = "Monjeu";
+        hubMgr.trainingSceneName = "Training";
         hubMgr.hubSceneName      = HUB_SCENE_NAME;
 
         // ════════════════════════════════════════════════════════════════
@@ -227,7 +227,7 @@ public static class OracleHubSceneBuilder
             "Étape suivante obligatoire :\n" +
             "  → Oracle > Setup Hub Player (from Combat Scene)\n" +
             "    Injecte automatiquement sprites + animations\n" +
-            "    depuis Monjeu.unity dans LocalPlayer.\n\n" +
+            "    depuis Training.unity dans LocalPlayer.\n\n" +
             "Ensuite : Lance la scène Hub et clique gauche pour te déplacer.",
             "OK");
     }

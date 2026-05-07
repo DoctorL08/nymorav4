@@ -14,7 +14,7 @@ public class HubManager : MonoBehaviour
 
     [Header("Scènes")]
     [Tooltip("Nom de la scène de combat pour l'entraînement solo (vs IA).")]
-    public string trainingSceneName = "Monjeu";
+    public string trainingSceneName = "Training";
     [Tooltip("Nom de cette scène hub.")]
     public string hubSceneName = "Hub";
 
